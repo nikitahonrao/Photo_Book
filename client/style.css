@@ -1,0 +1,273 @@
+body{
+    align-items: center;
+    background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/06/Flowers-hd-wallpaper-backgrounds.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;        /* Make sure image covers full page */
+    background-attachment: fixed;  
+/* Styling the nav bar container */
+
+}
+nav { /* Fresh teal */
+    padding: 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 30px;
+    font-style: bold;
+    padding: 8px 15px;
+    border: 2px solid white;  /* White border */
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #eddd49; /* Bright yellow hover */
+    color: #009688;            /* Teal text on hover */
+}
+
+
+nav ul {
+    list-style-type: none;                  /* Remove bullet points */
+    margin: 0;                              /* Remove default margin */
+    padding: 0;                             /* Remove default padding */
+    display:flex; 
+                          /* Use flexbox for layout */
+}
+
+nav ul li {
+    margin-right: 100px;  
+    margin-left: 40px;                   /* Space between items */
+}
+
+
+.header-text {
+    display: flex;
+    flex-direction:column; /* Heading above paragraph */
+    color: white;
+    text-align: left;
+    margin-left: 0px;
+}
+
+.header-text h1 {
+    font-size: 23px;
+    margin: 0;
+}
+
+.header-text p {
+    font-size: 20px;
+    margin: 0;
+    margin-top: 10px;
+}
+
+/* ended the above nav bar container */
+
+
+/* Styling the main content area */
+.main-heading {
+    font-family: 'Poppins', sans-serif; /* Clean modern font */
+    font-size: 90px;
+    font-weight: bold;
+    margin-top: 80px;
+    text-align: center;
+    margin-left: 70px;
+    color: #ffffff;
+    text-transform: uppercase; /* All caps */
+    letter-spacing: 2px;
+
+    /* Cool gradient text */
+    background: linear-gradient(90deg, #ffdd00, #ff0066);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Shadow for pop effect */
+    text-shadow: 2px 2px 4px rgba(230, 215, 215, 0.4);
+
+    /* Animation */
+    animation: fadeInDown 1s ease-out;
+}
+
+/* Simple fade-in-down animation */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.85);
+    font-style: italic;
+    text-align: left;
+    margin-top: 20px;
+    max-width: 750px;
+    margin-left: 70px;
+
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    line-height: 1.6;
+    padding: 0 20px; /* Add some horizontal padding */
+    animation: fadeInUp 1s ease-out;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sub-sub-heading {
+    font-family: 'Roboto', sans-serif;
+    font-size: 22px;
+    color: rgba(242, 245, 246, 0.7);
+    text-align: center;
+    margin-top: 30px;
+    max-width: 600px;
+    margin-left: 70px;
+    text-shadow: 1px 1px 2px rgba(201, 221, 230, 0.5);
+    line-height: 1.6;
+    padding: 0 20px; /* Add some horizontal padding */
+}
+
+.Buttondesign {
+    margin-top: 40px;
+    margin-left: 100px; 
+    gap: 60px; /* Space between buttons */
+    display: flex; /* Use flexbox for layout */ 
+    margin-left: 200px; /* Adjusted margin for alignment */
+    
+}
+
+.Buttondesign button {
+    background-color: #009688; /* Teal background */
+    color: rgb(248, 245, 246);
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    gap: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-right: 20px; /* Space between buttons */
+    box-shadow: 0 4px 6px rgba(225, 221, 221, 0.1); /* Subtle shadow for depth */
+    display: inline-block; /* Make buttons inline */    
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Make text bold */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1px; /* Slightly spaced letters */
+    width: 150px; /* Fixed width for uniformity */
+    height: 50px; /* Fixed height for uniformity *//* Center text vertically */
+}
+.Buttondesign button:hover {
+    background-color: #e60fa2; /* Darker teal on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allow images to wrap */
+    margin-top: 100px; /* Space above the image container */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px; /* Space between images */
+    margin: 0 auto; /* Center the image container */
+    padding: 20px; /* Add some padding around the images */
+    max-width: 1400px; /* Limit the width of the image container */
+    flex-wrap: wrap; /* Allow images to wrap to the next line */
+    background-color: rgba(202, 195, 195, 0.8); /* Semi-transparent white background */
+    border-radius: 20px; /* Rounded corners for the container */
+    box-shadow: 1 4px 6px rgba(156, 46, 46, 0.1); /* Subtle shadow for depth */
+    padding: 25px; /* Padding around the images */
+    margin-top: 50px; /* Space above the image container */
+    margin-bottom: 50px; /* Space below the image container */  
+    transition: transform 0.3s; /* Smooth scaling effect on hover */
+}
+
+.image-container img {
+    width: 300px; /* Fixed width for images */
+    height: 280px; /* Fixed height for images */
+    object-fit: cover; /* Cover the entire area without distortion */
+    border-radius: 10px; /* Rounded corners for images */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.3s; /* Smooth scaling effect on hover */
+
+}
+.image-container img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+/* Lightbox overlay */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Enlarged image */
+.lightbox img {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.footer-heading {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-transform: uppercase; /* All caps */
+    letter-spacing: 1px; /* Slightly spaced letters */
+}
+
+
+footer {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative; /* Position relative for absolute children */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%;
+}

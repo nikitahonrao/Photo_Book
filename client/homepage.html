@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Photo Book</title>
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: #f5f5f5;
+    }
+
+    /* Navbar */
+    nav {
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    nav h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+
+    nav a {
+        color: white;
+        margin-left: 20px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: url('https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .hero h2 {
+        font-size: 48px;
+        text-shadow: 0 3px 8px rgba(0,0,0,0.5);
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-top: 10px;
+        text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    .hero button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: white;
+        color: #6e8efb;
+        border: none;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .hero button:hover {
+        background: #f0f0f0;
+        transform: translateY(-2px);
+    }
+
+    /* Featured Albums */
+    .albums {
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .albums h3 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .album-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+
+    .album-card {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+    }
+
+    .album-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .album-card h4 {
+        margin: 10px;
+        font-size: 18px;
+    }
+
+    .album-card p {
+        font-size: 14px;
+        color: #666;
+        margin: 0 10px 15px;
+    }
+
+    .album-card:hover {
+        transform: translateY(-5px);
+    }
+
+    /* Our Story */
+    .our-story {
+        padding: 50px 20px;
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        color: white;
+        text-align: center;
+    }
+
+    .our-story h3 {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .our-story p {
+        max-width: 700px;
+        margin: auto;
+        font-size: 16px;
+    }
+
+    .our-story button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: white;
+        color: #6e8efb;
+        border: none;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .our-story button:hover {
+        background: #f0f0f0;
+    }
+
+    /* Footer */
+    footer {
+        background: #333;
+        color: white;
+        text-align: center;
+        padding: 15px 10px;
+        margin-top: 40px;
+    }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <h1>📸 My Photo Book</h1>
+    <div>
+        <a href="home.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="signup.html">Sign Up</a>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div>
+        <h2>Capture Your Moments Forever</h2>
+        <p>Create, Share, and Cherish Your Photo Memories</p>
+        <button onclick="window.location.href='gallery.html'">View Gallery</button>
+    </div>
+</div>
+
+<!-- Featured Albums -->
+<section class="albums">
+    <h3>Featured Albums</h3>
+    <div class="album-grid">
+        <div class="album-card">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="">
+            <h4>Beach Vacation</h4>
+            <p>Golden sunsets and endless waves.</p>
+        </div>
+        <div class="album-card">
+            <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=800&q=80" alt="">
+            <h4>Mountain Adventure</h4>
+            <p>Exploring nature's beauty.</p>
+        </div>
+        <div class="album-card">
+            <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80" alt="">
+            <h4>City Lights</h4>
+            <p>The magic of urban nights.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Our Story -->
+<section class="our-story">
+    <h3>Our Story</h3>
+    <p>
+        Every photograph tells a story — a smile, a journey, a moment frozen in time.  
+        Our Photo Book is where memories live forever. Whether it’s a family trip,  
+        a celebration, or everyday magic, this is your place to treasure them.
+    </p>
+    <button onclick="window.location.href='story.html'">Read More</button>
+</section>
+
+<!-- Footer -->
+<footer>
+    &copy; 2025 My Photo Book | Made with ❤️ for memories
+</footer>
+
+</body>
+</html>

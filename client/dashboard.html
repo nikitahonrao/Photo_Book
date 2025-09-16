@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PhotoBook — Dashboard</title>
+  <link rel="stylesheet" href="dashboardcss.css">
+  <style>
+    /* ✅ Add basic modal overlay style */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none; /* default hidden */
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+    .modal-body {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 350px;
+      max-width: 90%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="topbar">
+    <div class="brand">📸 <span>PhotoBook</span></div>
+    <nav class="nav">
+      <button id="homeBtn" class="link">Home</button>
+      <button id="favFilterBtn" class="link">Favorites</button>
+      <span class="welcome">Hello, <b id="userName">User</b></span>
+      <button id="logoutBtn" class="btn">Logout</button>
+    </nav>
+  </header>
+
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <button id="openCreateAlbum" class="btn primary wide">+ Create Album</button>
+
+      <div class="card">
+        <h4>Upload Photo</h4>
+        <label class="lbl">Select album</label>
+        <select id="albumSelect"></select>
+
+        <label class="lbl">Choose photo</label>
+        <input id="photoInput" type="file" accept="image/*">
+
+        <label class="lbl">Caption</label>
+        <input id="captionInput" type="text" placeholder="Write a caption...">
+
+        <button id="uploadBtn" class="btn wide">Upload</button>
+        <small class="muted">Images are stored on your Node server; URLs are saved in Firestore.</small>
+      </div>
+
+      <div class="card">
+        <h4>Recent Albums</h4>
+        <ul id="recentList" class="recent-list"></ul>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <section>
+        <h2 id="sectionTitle">My Albums</h2>
+        <div id="albumsGrid" class="grid"></div>
+      </section>
+
+      <!-- Album View -->
+      <section id="albumView" class="hidden">
+        <div class="album-head">
+          <img id="albumCover" alt="">
+          <div>
+            <h2 id="albumTitle"></h2>
+            <p id="albumDesc" class="muted"></p>
+            <button id="favToggle" class="chip">★ Favorite</button>
+            <button id="backHome" class="chip">← Back</button>
+          </div>
+        </div>
+        <div id="photosGrid" class="grid photos"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- CREATE ALBUM MODAL -->
+  <div id="modal" class="modal">
+    <div class="modal-body">
+      <h3>Create Album</h3>
+      <label class="lbl">Title</label>
+      <input id="newTitle" type="text" placeholder="Trip to Goa" />
+      <label class="lbl">Description</label>
+      <input id="newDesc" type="text" placeholder="Sea breeze & sunsets" />
+      <label class="lbl">Cover image (optional URL)</label>
+      <input id="newCover" type="url" placeholder="https://..." />
+      <div class="row" style="margin-top:12px; display:flex; justify-content:flex-end; gap:8px;">
+        <button id="cancelCreate" class="btn ghost">Cancel</button>
+        <button id="createAlbum" class="btn primary">Create</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS (module) -->
+  <script type="module" src="dashboardscript.js"></script>
+
+  <!-- ✅ Modal open/close logic -->
+  <script>
+    const modal = document.getElementById("modal");
+    const openCreateAlbum = document.getElementById("openCreateAlbum");
+    const cancelCreate = document.getElementById("cancelCreate");
+
+    function openModal() {
+      modal.style.display = "flex";
+    }
+    function closeModal() {
+      modal.style.display = "none";
+      document.getElementById("newTitle").value = "";
+      document.getElementById("newDesc").value = "";
+      document.getElementById("newCover").value = "";
+    }
+
+    openCreateAlbum.addEventListener("click", openModal);
+    cancelCreate.addEventListener("click", closeModal);
+
+    // Close if clicking outside modal-body
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Close on ESC key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeModal();
+    });
+
+    // Export to dashboardscript.js (for Create button)
+    window.closeModal = closeModal;
+  </script>
+</body>
+</html>

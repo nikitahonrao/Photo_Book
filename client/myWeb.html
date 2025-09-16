@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <script src="script.js"></script>
+    <nav>
+        <ul>
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="login.html">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="header-text">
+            <h1>Welcome To PhotoBook </h1>
+            <p>Search your Fovorite's With Us !!</p>
+        </div>
+    </nav>
+
+    <h1>
+        <span class="main-heading">Our Storybook</span>
+    </h1>
+    <h2 class="sub-heading">Every page, a Heartbeat<br>A timeless collection of moments that tell your unique story</h2>
+
+
+    <h3 class="sub-sub-heading">Let's Come with Us</h3>
+
+    <div class="Buttondesign">
+        <a href="login.html"><button id="login">Login</button></a>
+        <a href="signup.html"><button id="signup">Sign Up</button></a>
+    </div>
+
+
+    <div class="container">
+        <nav class="image-container">
+            <img src="images/img1.jpg" alt="Image 1" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img3.jpeg" alt="Image 3" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img4.jpeg" alt="Image 4" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img2.jpeg" alt="Image 2" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img5.jpeg" alt="Image 5" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img6.webp" alt="Image 6" onclick="openLightbox(this)" width="500" height="300" >
+            <img src="images/img7.jpeg" alt="Image 7" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img8.jpeg" alt="Image 8" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img9.jpeg" alt="Image 9" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img10.webp" alt="Image 10" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img12.jpeg" alt="Image 11" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img13.webp" alt="Image 12" onclick="openLightbox(this)" width="500" height="300"> 
+            <img src="images/img14.jpeg" alt="Image 13" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img15.webp" alt="Image 14" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img16.jpeg" alt="Image 15" onclick="openLightbox(this)" width="500" height="300">
+            <img src="images/img17.jpeg" alt="Image 16" onclick="openLightbox(this)" width="500" height="300">
+        </nav>
+    </div>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img id="lightbox-img">
+    </div>
+
+    <h4  class="footer-heading">
+        <span>Explore the world through our lens</span>
+        <br>Join with us For download your favorite images
+    </h4>
+    <footer>
+        <p>&copy;  Photo Book. All rights reserved. <br> Contact : ABC@gmail.com 😊  Mob : 8010427504</p>
+
+    </footer>
+
+</body>
+
+</html>

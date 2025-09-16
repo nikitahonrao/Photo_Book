@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Photo Test</title>
+  <style>
+    /* Lightbox styles */
+    #lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border: 3px solid white;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <h1>📷 माझा फोटो</h1>
+
+  <!-- Upload Form -->
+  <form id="uploadForm">
+    <input type="file" name="photo" id="photoInput" required>
+    <input type="text" name="caption" id="captionInput" placeholder="Caption लिहा">
+    <button type="submit">Upload</button>
+  </form>
+
+  <hr>
+
+  <!-- Uploaded photos will be shown here -->
+  <div id="gallery">
+    <h2>Album</h2>
+    <div id="photos"></div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox">
+    <img src="" alt="Preview">
+  </div>
+
+  <script>
+    const form = document.getElementById("uploadForm");
+    const photosDiv = document.getElementById("photos");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const fileInput = document.getElementById("photoInput");
+      const captionInput = document.getElementById("captionInput");
+
+      const formData = new FormData();
+      formData.append("photo", fileInput.files[0]);
+      formData.append("caption", captionInput.value);
+
+      try {
+        const res = await fetch("http://localhost:5000/upload", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await res.json();
+        console.log("✅ Uploaded:", data);
+
+        // Show uploaded image
+        const img = document.createElement("img");
+        img.src = data.file;
+        img.width = 200;
+
+        // Enable click-to-enlarge
+        img.addEventListener("click", () => {
+          lightboxImg.src = img.src;
+          lightbox.style.display = "flex";
+        });
+
+        const cap = document.createElement("p");
+        cap.innerText = data.caption;
+
+        const box = document.createElement("div");
+        box.appendChild(img);
+        box.appendChild(cap);
+
+        photosDiv.appendChild(box);
+
+        // Reset form
+        form.reset();
+
+      } catch (err) {
+        console.error("❌ Upload failed:", err);
+      }
+    });
+
+    // Close lightbox when clicking outside image
+    lightbox.addEventListener("click", (e) => {
+      if (e.target !== lightboxImg) {
+        lightbox.style.display = "none";
+      }
+    });
+  </script>
+</body>
+</html>
